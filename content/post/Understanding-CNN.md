@@ -1,7 +1,7 @@
 ---
 title: "Understanding Convolutional Neural Networks (CNN)"
 date: 2020-02-16T19:58:52+05:30
-draft: true
+draft: false
 author: "Vighnesh Tamse"
 ---
 
