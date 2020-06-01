@@ -1,7 +1,7 @@
 ---
 title: "5 Basic Pytorch Functions"
 date: 2020-06-01T12:39:50+05:30
-draft: false
+draft: true
 author: "Vighnesh Tamse"
 ---
 
