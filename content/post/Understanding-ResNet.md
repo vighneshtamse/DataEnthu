@@ -19,7 +19,7 @@ The concept behind VGG net is similar to that of Alexnet, meaning that, as the d
 
 The VGG 16 network architecture is as shown below:
 
-![VGG-Net](images/image-20200217225919746.png)
+![VGG-Net](image-20200217225919746.png)
 
 Source: https://www.researchgate.net/figure/Fig-A1-The-standard-VGG-16-network-architecture-as-proposed-in-32-Note-that-only_fig3_322512435
 
@@ -29,7 +29,7 @@ But there was a problem with this architecture. There are a number of layers in 
 
 So, in short, as we add more layers to our deep neural networks, the training error increases. This can be understood using the image below:
 
-![Degradation](images/image-20200217231328129.png)
+![Degradation](image-20200217231328129.png)
 
 Another problem was that of **Vanishing Gradient.** 
 
@@ -39,7 +39,7 @@ So, what is **Vanishing Gradient?** Well, as we keep on adding more layers to ou
 
 It is a technique for training very deep neural networks that standardizes the inputs to a layer for each mini-batch. This has the effect of stabilizing the learning process and dramatically reducing the number of training epochs required to train deep networks. This method allows us to be less careful about initialization.
 
-<img src="images/Batch_Normalization.png" style="zoom: 50%;"/>
+<img src="Batch_Normalization.png" style="zoom: 50%;"/>
 
 #### Didn't get it yet? Let's try to understand it in a different way...
 
@@ -59,7 +59,7 @@ The weights that we initialize at the start while training a deep neural network
 
    Xavier initialization initializes the weights in the network by drawing them from a distribution with zero mean and a specific variance. It is generally used with tanh activation.
 
-   ![Xavier/Glarot Initialization](images/image-20200222091718888.png)
+   ![Xavier/Glarot Initialization](image-20200222091718888.png)
 
 where, fan_in is the number of inputs.
 
@@ -67,13 +67,13 @@ where, fan_in is the number of inputs.
 
    This is similar to Xavier initialization with a factor multiplies by 2. In order to attain global minimum of the cost function more faster and efficiently, the weights are initialized keeping in mind the size of the previous layer. This results in controlled initialization and as result faster and more efficient gradient descent.
 
-   ![He Initialization](images/image-20200222092543322.png)
+   ![He Initialization](image-20200222092543322.png)
 
 Now that we have had a brief overview of what VGG net is and what problem it faces, we will move forward to understand what exactly is **ResNet** and how does it work.
 
 ## Residual Networks (ResNet):
 
-> ![Basic ResNet Architecture](images/Basic_ResNet_architecture.jpg)
+> ![Basic ResNet Architecture](Basic_ResNet_architecture.jpg)
 
 > ​																				Figure1: Residual Block
 
@@ -85,7 +85,7 @@ But what is the use of this Identity Mapping? Well, it enables backpropagation s
 
 As seen in Figure1, **F(x)** is the **Residual Function** or the **Residual Mapping** which is between two convolutional (weight) layers and can be said as the difference between the input (x) and the output (H(x)) of the residual block as shown in Figure1. So, the Residual Function F(x) can be written as:
 
-![Residual Function](images/Residual_Function.png)
+![Residual Function](Residual_Function.png)
 
 > ​																			Residual Function
 
@@ -101,13 +101,13 @@ Well, we know that during back propagation in a normal stacked deep neural netwo
 
 Now, let us look at the ResNet-34 architecture:
 
-![ResNet-34 Architecture](images/ResNet_Architecture.png)
+![ResNet-34 Architecture](ResNet_Architecture.png)
 
 > Comparison of VGG-19, 34 layer plain neural network and 34-layer deep residual neural network
 >
 > The dotted lines indicate change in the size of the image from one residual block to another and is Linear Projection which can be accomplished by using 1x1 kernels.
 
-![ResNet Architectures](images/ResNet_Architecture_1.png)
+![ResNet Architectures](ResNet_Architecture_1.png)
 
 > ​												Various Deep Residual Network architectures
 

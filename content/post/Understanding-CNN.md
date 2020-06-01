@@ -63,7 +63,7 @@ Now, in the first layer i.e. the **Convolution layer**, Convolution is performed
 
 3. **Feature Map/Activation Map-** The resultant of the convolution operation performed between image and feature detector gives a Feature Map.
 
-![](images/image-20200216201248797.png "Convolution Operation")
+![](image-20200216201248797.png "Convolution Operation")
 
 So how exactly does a convolution operation work?
 
@@ -94,7 +94,7 @@ ReLU function looks something like this:
 
 Pooling is of two types: 1) Max Pooling and 2) Average Pooling. The idea behind both these is as shown in the below image:
 
-![](images/image-20200216215400133.png "Pooling")
+![](image-20200216215400133.png "Pooling")
 
 From the above image we can get a slight understanding that pooling reduces the size of the image. But why exactly do we do pooling? What's in it for us? Well... the following points will make you understand that:
 
@@ -114,11 +114,11 @@ But wait! Aren't we losing information while doing this? Yes, definitely we are!
 
 Once we get a pooled feature map of our image, the next step is flattening out the pooled feature map into a column vector like the one shown in the image below:
 
-![](images/image-20200216222051338.png "Flattening the Feature Map")
+![](image-20200216222051338.png "Flattening the Feature Map")
 
 And why are we doing this? Because we are going to insert this vector into a fully connected neural network to process it further. This vector is given as input to the neural network whose role is to combine a wider variety of attributes and make the CNN more capable to classify images. 
 
-![](images/image-20200216223021981.png "Fully Connected Network")
+![](image-20200216223021981.png "Fully Connected Network")
 
 #### **5. Use case of CNN:**
 
