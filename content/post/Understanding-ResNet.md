@@ -1,7 +1,7 @@
 ---
 title: "Understanding ResNet"
 date: 2020-04-25T19:42:24+05:30
-draft: true
+draft: false
 author: "Vighnesh Tamse"
 ---
 
