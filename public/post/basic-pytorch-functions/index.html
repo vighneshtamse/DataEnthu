@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>5 Basic Pytorch Functions - Vighnesh Tamse | DataEnthu</title>
+	<script>(function(d,e){d[e]=d[e].replace("no-js","js");})(document.documentElement,"className");</script>
+	<meta name="description" content="">
+		<meta property="og:title" content="5 Basic Pytorch Functions" />
+<meta property="og:description" content="Basic Pytorch Tensor Functions Pytorch is a python based scientific computing package which is replacement for Numpy to use the power of GPUs and also provides maximum flexibility and speed. We will now look at 5 of the many interesting pytorch functions in this section.
+ torch.from_numpy(ndarray) torch.argmax(input) torch.unsqueeze(input, dim) torch.mm(input, mat2, out=None) torch.pow(input, exponent, out=None)  # Import torch and other required modules import torch import jovian import numpy as np &lt;IPython." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://vighneshtamse.github.io/post/basic-pytorch-functions/" />
+<meta property="article:published_time" content="2020-06-01T12:39:50+05:30" />
+<meta property="article:modified_time" content="2020-06-01T12:39:50+05:30" />
+
+		<meta itemprop="name" content="5 Basic Pytorch Functions">
+<meta itemprop="description" content="Basic Pytorch Tensor Functions Pytorch is a python based scientific computing package which is replacement for Numpy to use the power of GPUs and also provides maximum flexibility and speed. We will now look at 5 of the many interesting pytorch functions in this section.
+ torch.from_numpy(ndarray) torch.argmax(input) torch.unsqueeze(input, dim) torch.mm(input, mat2, out=None) torch.pow(input, exponent, out=None)  # Import torch and other required modules import torch import jovian import numpy as np &lt;IPython.">
+<meta itemprop="datePublished" content="2020-06-01T12:39:50&#43;05:30" />
+<meta itemprop="dateModified" content="2020-06-01T12:39:50&#43;05:30" />
+<meta itemprop="wordCount" content="1507">
+
+
+
+<meta itemprop="keywords" content="" />
+		<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="5 Basic Pytorch Functions"/>
+<meta name="twitter:description" content="Basic Pytorch Tensor Functions Pytorch is a python based scientific computing package which is replacement for Numpy to use the power of GPUs and also provides maximum flexibility and speed. We will now look at 5 of the many interesting pytorch functions in this section.
+ torch.from_numpy(ndarray) torch.argmax(input) torch.unsqueeze(input, dim) torch.mm(input, mat2, out=None) torch.pow(input, exponent, out=None)  # Import torch and other required modules import torch import jovian import numpy as np &lt;IPython."/>
+
+	<link rel="dns-prefetch" href="//fonts.googleapis.com">
+	<link rel="dns-prefetch" href="//fonts.gstatic.com">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700">
+	<link rel="stylesheet" href="/css/style.css">
+	<link rel="stylesheet" href="/css/custom.css">
+	<link rel="shortcut icon" href="/favicon.ico">
+		
+</head>
+<body class="body">
+	<div class="container container--outer">
+		<header class="header">
+	<div class="container header__container">
+		
+	<div class="logo logo--mixed">
+		<a class="logo__link" href="/" title="Vighnesh Tamse | DataEnthu" rel="home">
+				<div class="logo__item logo__imagebox">
+					<img class="logo__img" src="/img/favicon.ico">
+				</div><div class="logo__item logo__text">
+					<div class="logo__title">Vighnesh Tamse | DataEnthu</div>
+					<div class="logo__tagline">Machine Learning, Deep Learning and Data Science enthusiast</div>
+				</div>
+		</a>
+	</div>
+		
+<nav class="menu">
+	<button class="menu__btn" aria-haspopup="true" aria-expanded="false" tabindex="0">
+		<span class="menu__btn-title" tabindex="-1">Menu</span>
+	</button>
+	<ul class="menu__list">
+		<li class="menu__item">
+			<a class="menu__link" href="/post/">
+				
+				<span class="menu__text">Blog</span>
+				
+			</a>
+		</li>
+		<li class="menu__item">
+			<a class="menu__link" href="/projects/">
+				
+				<span class="menu__text">Projects</span>
+				
+			</a>
+		</li>
+		<li class="menu__item">
+			<a class="menu__link" href="/courses/">
+				
+				<span class="menu__text">Courses</span>
+				
+			</a>
+		</li>
+		<li class="menu__item">
+			<a class="menu__link" href="/about/">
+				
+				<span class="menu__text">About Me</span>
+				
+			</a>
+		</li>
+	</ul>
+</nav>
+
+	</div>
+</header>
+		<div class="wrapper flex">
+			<div class="primary">
+			
+<main class="main" role="main">
+	<article class="post">
+		<header class="post__header">
+			<h1 class="post__title">5 Basic Pytorch Functions</h1>
+			<div class="post__meta meta"><div class="meta__item-author meta__item">
+	<svg class="meta__icon icon icon-author" width="16" height="16" viewBox="0 0 12 16"><path d="M6 1c2.2 0 3.5 2 3.5 4.5C9.5 7 8.9 8.2 8 9c2.9.8 4 2.5 4 5v1H0v-1c0-2.5 1.1-4.2 4-5-.9-.8-1.5-2-1.5-3.5C2.5 3 3.8 1 6 1z"/></svg><span class="meta__text">Vighnesh Uday Tamse</span>
+</div>
+<div class="meta__item-datetime meta__item">
+	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0C7 0 1 6 1 14s6 14 14 14 14-6 14-14S23 0 15 0zm0 25C9 25 4 20 4 14S9 3 15 3s11 5 11 11-5 11-11 11zm1-18h-2v8.4l6.8 4.4L22 18l-6-3.8V7z"/></svg><time class="meta__text" datetime="2020-06-01T12:39:50&#43;05:30">2020-06-01</time></div></div>
+		</header>
+<div class="post__toc toc">
+	<div class="toc__title">Page content</div>
+	<div class="toc__menu">
+		<nav id="TableOfContents">
+  <ul>
+    <li><a href="#function-1---torchfrom_numpyndarray">Function 1 - torch.from_numpy(ndarray)</a></li>
+    <li><a href="#function-2---torchargmaxinput">Function 2 - torch.argmax(input)</a></li>
+    <li><a href="#function-3---torchunsqueezeinput-dim">Function 3 - torch.unsqueeze(input, dim)</a></li>
+    <li><a href="#function-4---torchmminput-mat2-outnone">Function 4 - torch.mm(input, mat2, out=None)</a></li>
+    <li><a href="#function-5---torchpowinput-exponent-outnone">Function 5 - torch.pow(input, exponent, out=None)</a></li>
+    <li><a href="#conclusion">Conclusion</a></li>
+    <li><a href="#reference-links">Reference Links</a></li>
+  </ul>
+</nav>
+	</div>
+</div>
+<div class="content post__content clearfix">
+			<h1 id="basic-pytorch-tensor-functions">Basic Pytorch Tensor Functions</h1>
+<p>Pytorch is a python based scientific computing package which is replacement for Numpy to use the power of GPUs and also provides maximum flexibility and speed. We will now look at 5 of the many interesting pytorch functions in this section.</p>
+<ul>
+<li><code>torch.from_numpy(ndarray)</code></li>
+<li><code>torch.argmax(input)</code></li>
+<li><code>torch.unsqueeze(input, dim)</code></li>
+<li><code>torch.mm(input, mat2, out=None)</code></li>
+<li><code>torch.pow(input, exponent, out=None)</code></li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># Import torch and other required modules</span>
+<span style="color:#f92672">import</span> torch
+<span style="color:#f92672">import</span> jovian
+<span style="color:#f92672">import</span> numpy <span style="color:#f92672">as</span> np
+</code></pre></div><pre><code>&lt;IPython.core.display.Javascript object&gt;
+</code></pre>
+<h2 id="function-1---torchfrom_numpyndarray">Function 1 - torch.from_numpy(ndarray)</h2>
+<p>This function is used to create tensors from numpy array. It expects the input as a numpy array (numpy.ndarray) and the output type is a tensor. The returned tensor and ndarray share the same memory.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># Example 1 - working</span>
+a <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>array([<span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">2</span>,<span style="color:#ae81ff">3</span>,<span style="color:#ae81ff">4</span>,<span style="color:#ae81ff">5</span>])
+torch<span style="color:#f92672">.</span>from_numpy(a)
+</code></pre></div><pre><code>tensor([1, 2, 3, 4, 5], dtype=torch.int32)
+</code></pre>
+<p>Here we created a 1D tensor from a 1D numpy arrray.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># Example 2 - working</span>
+b <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>array([[<span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">2</span>,<span style="color:#ae81ff">3</span>],[<span style="color:#ae81ff">4</span>,<span style="color:#ae81ff">5</span>,<span style="color:#ae81ff">6</span>],[<span style="color:#ae81ff">7</span>,<span style="color:#ae81ff">8</span>,<span style="color:#ae81ff">9</span>]])
+torch<span style="color:#f92672">.</span>from_numpy(b)
+</code></pre></div><pre><code>tensor([[1, 2, 3],
+        [4, 5, 6],
+        [7, 8, 9]], dtype=torch.int32)
+</code></pre>
+<p>Here we created a 3D tensor from a 3D numpy array.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># Example 3 - breaking (to illustrate when it breaks)</span>
+c <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>array([<span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">2.</span>,<span style="color:#e6db74">&#39;c&#39;</span>])
+<span style="color:#66d9ef">print</span>(c)
+torch<span style="color:#f92672">.</span>from_numpy(c)
+</code></pre></div><pre><code>['1' '2.0' 'c']
+
+---------------------------------------------------------------------------
+
+TypeError                                 Traceback (most recent call last)
+
+&lt;ipython-input-4-46829fbfa4c2&gt; in &lt;module&gt;
+      2 c = np.array([1,2.,'c'])
+      3 print(c)
+----&gt; 4 torch.from_numpy(c)
+
+
+TypeError: can't convert np.ndarray of type numpy.str_. The only supported types are: float64, float32, float16, int64, int32, int16, int8, uint8, and bool.
+</code></pre>
+<p>When we included a string in the numpy array and tried to convert it to torch tensors, we got an error. So, when converting the numpy array to tensors we need to nake sure that the data type of elements in the numpy array is integer, float or boolean.</p>
+<p><strong>torch.from_numpy()</strong> can be used when one wants to convert a numpy array to a tensor which can further be used to perform various other functions on the thus created tensor.</p>
+<h2 id="function-2---torchargmaxinput">Function 2 - torch.argmax(input)</h2>
+<p>torch.argmax() is a reduction operation function which returns the indices of the maximum value of all elements in the input tensor.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># Example 1 - working</span>
+a <span style="color:#f92672">=</span> torch<span style="color:#f92672">.</span>randn(<span style="color:#ae81ff">4</span>,<span style="color:#ae81ff">4</span>)
+<span style="color:#66d9ef">print</span>(a)
+torch<span style="color:#f92672">.</span>argmax(a)
+</code></pre></div><pre><code>tensor([[ 0.9441, -1.1231, -0.4217,  0.7111],
+        [-0.3351, -0.2536,  0.2316, -2.9140],
+        [-1.4188, -0.7284,  0.8831, -1.3805],
+        [ 0.1804,  0.2054, -0.0078,  1.1865]])
+
+tensor(15)
+</code></pre>
+<p>Here first we generated a 4x4 matrix with random numbers and then applied the torch.argmax() function on it which returns the index of the maximum number out of all the elements in the tensor. As we can from the above example that the maximum value, out of all the values present, is at the 12th position i.e. 11th index (as indexing starts from 0) in the tensor b, hence we got the output as tensor(11).</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># Example 2 - working</span>
+b <span style="color:#f92672">=</span> torch<span style="color:#f92672">.</span>randn(<span style="color:#ae81ff">3</span>,<span style="color:#ae81ff">3</span>)
+<span style="color:#66d9ef">print</span>(b)
+<span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;Column wise maximum: &#34;</span>,torch<span style="color:#f92672">.</span>argmax(b,dim<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>))
+<span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;Row wise maximum: &#34;</span>,torch<span style="color:#f92672">.</span>argmax(b,dim<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>))
+</code></pre></div><pre><code>tensor([[ 0.0339, -0.6427, -0.1145],
+        [-0.3618, -0.2167,  1.4323],
+        [ 0.2412, -0.2032,  1.0173]])
+Column wise maximum:  tensor([2, 2, 1])
+Row wise maximum:  tensor([0, 2, 2])
+</code></pre>
+<p>Here we use a parameter called <strong>dim</strong> (dimension) in case we want the maximum number from rows and columns. dim=0 means columns and dim=1 means rows.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># Example 3 - Inconsistent results between numpy.argmax() and torch.argmax() when there are duplicate values.</span>
+a <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>array([<span style="color:#ae81ff">5</span>, <span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">6</span>, <span style="color:#ae81ff">11</span>, <span style="color:#ae81ff">8</span>, <span style="color:#ae81ff">11</span>])
+<span style="color:#66d9ef">print</span>(np<span style="color:#f92672">.</span>argmax(a))
+b <span style="color:#f92672">=</span> torch<span style="color:#f92672">.</span>from_numpy(a)
+<span style="color:#75715e">#print(b)</span>
+<span style="color:#66d9ef">print</span>(torch<span style="color:#f92672">.</span>argmax(b))
+</code></pre></div><pre><code>3
+tensor(5)
+</code></pre>
+<p>From the above example we can see that the argmax function of numpy and torch returns different index values of maximum numbers when there are duplicate values. The argmax function of numpy returns the first occurrence of the maximum value and the argmax function of torch returns the last occurrence of the maximum value.</p>
+<p><strong>torch.argmax()</strong> function is useful when you want to know the index of the maximum value of all the elements or index of the maximum value row wise or column wise. But when there are duplicate values remember that it returns the index of the last occurrence of the maximum value unlike numpy which returns the index of the first occurrence.</p>
+<h2 id="function-3---torchunsqueezeinput-dim">Function 3 - torch.unsqueeze(input, dim)</h2>
+<p>This function returns a new tensor with a dimension of size one inserted at the specified position.
+A dim value within the range [-input.dim() - 1, input.dim() + 1] can be used.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># Example 1 - working</span>
+a <span style="color:#f92672">=</span> torch<span style="color:#f92672">.</span>tensor([<span style="color:#ae81ff">2</span>,<span style="color:#ae81ff">8</span>,<span style="color:#ae81ff">6</span>,<span style="color:#ae81ff">7</span>])
+<span style="color:#66d9ef">print</span>(a)
+torch<span style="color:#f92672">.</span>unsqueeze(a,<span style="color:#ae81ff">1</span>)
+</code></pre></div><pre><code>tensor([2, 8, 6, 7])
+
+tensor([[2],
+        [8],
+        [6],
+        [7]])
+</code></pre>
+<p>Using torch.unsqueeze() in the above example, we added a dimension at position 1.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># Example 2 - working</span>
+a <span style="color:#f92672">=</span> torch<span style="color:#f92672">.</span>randn(<span style="color:#ae81ff">3</span>,<span style="color:#ae81ff">3</span>)
+<span style="color:#66d9ef">print</span>(a)
+torch<span style="color:#f92672">.</span>unsqueeze(a,<span style="color:#ae81ff">2</span>)
+</code></pre></div><pre><code>tensor([[ 1.1121, -0.9097,  0.3571],
+        [ 0.7203,  1.3986, -0.0914],
+        [ 0.0932, -0.5584,  2.3528]])
+</code></pre><pre><code>tensor([[[ 1.1121],
+         [-0.9097],
+         [ 0.3571]],
+
+        [[ 0.7203],
+         [ 1.3986],
+         [-0.0914]],
+
+        [[ 0.0932],
+         [-0.5584],
+         [ 2.3528]]])
+</code></pre><p>In the above example, we added a dimension at position 2</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># Example 3 - breaking (to illustrate when it breaks)</span>
+a <span style="color:#f92672">=</span> torch<span style="color:#f92672">.</span>randn(<span style="color:#ae81ff">3</span>,<span style="color:#ae81ff">3</span>)
+<span style="color:#66d9ef">print</span>(a)
+torch<span style="color:#f92672">.</span>unsqueeze(a,<span style="color:#ae81ff">3</span>)
+</code></pre></div><pre><code>tensor([[ 1.2530,  0.2198,  1.0602],
+        [ 0.6132, -0.5068, -0.5944],
+        [-0.4629,  0.7406,  0.9527]])
+
+---------------------------------------------------------------------------
+
+IndexError                                Traceback (most recent call last)
+
+&lt;ipython-input-10-b839220d5c74&gt; in &lt;module&gt;
+      2 a = torch.randn(3,3)
+      3 print(a)
+----&gt; 4 torch.unsqueeze(a,3)
+
+
+IndexError: Dimension out of range (expected to be in range of [-3, 2], but got 3)
+</code></pre>
+<p>In the above example, the dimension should be in the range between -3 and 2 according to the formula [-input.dim() - 1, input.dim() + 1] but we are providing a dimension of 3 which is out of range hence the error.</p>
+<p><strong>torch.unsqueeze()</strong> function should be used when the dimensionality of the input is unknown but we would still like to insert a singleton dimension. This function lets us insert the dimension without explicitly being aware of the other dimensions when writing the code.</p>
+<h2 id="function-4---torchmminput-mat2-outnone">Function 4 - torch.mm(input, mat2, out=None)</h2>
+<p>This function is used to perform matrix multiplication of the matrices - input and mat2.
+If input is a (n x m) tensor, mat2 is a (m x p) tensor, out will be a (n x p) tensor.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># Example 1 - working</span>
+a <span style="color:#f92672">=</span> torch<span style="color:#f92672">.</span>tensor([[<span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">2</span>,<span style="color:#ae81ff">3</span>],[<span style="color:#ae81ff">6</span>,<span style="color:#ae81ff">5</span>,<span style="color:#ae81ff">4</span>],[<span style="color:#ae81ff">7</span>,<span style="color:#ae81ff">8</span>,<span style="color:#ae81ff">9</span>]])
+b <span style="color:#f92672">=</span> torch<span style="color:#f92672">.</span>tensor([[<span style="color:#ae81ff">9</span>,<span style="color:#ae81ff">8</span>,<span style="color:#ae81ff">7</span>],[<span style="color:#ae81ff">4</span>,<span style="color:#ae81ff">5</span>,<span style="color:#ae81ff">6</span>],[<span style="color:#ae81ff">3</span>,<span style="color:#ae81ff">2</span>,<span style="color:#ae81ff">1</span>]])
+torch<span style="color:#f92672">.</span>mm(a,b)
+</code></pre></div><pre><code>tensor([[ 26,  24,  22],
+        [ 86,  81,  76],
+        [122, 114, 106]])
+</code></pre>
+<p>In the above example, we created two 3x3 matrices and performed matrix multiplication on the same resulting in 3x3 matrix.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># Example 2 - working</span>
+a <span style="color:#f92672">=</span> torch<span style="color:#f92672">.</span>randn(<span style="color:#ae81ff">5</span>,<span style="color:#ae81ff">3</span>)
+b <span style="color:#f92672">=</span> torch<span style="color:#f92672">.</span>randn(<span style="color:#ae81ff">3</span>,<span style="color:#ae81ff">5</span>)
+torch<span style="color:#f92672">.</span>mm(a,b)
+</code></pre></div><pre><code>tensor([[-0.8871,  1.6875,  1.0668,  0.4330,  1.0075],
+        [-2.5780,  0.9463,  0.0709, -1.9850,  2.8363],
+        [ 1.7439, -2.2066, -2.2754, -1.2523, -1.8266],
+        [ 1.1687, -2.0800, -1.2103, -0.3440, -1.3347],
+        [-0.2073, -2.9300, -1.1681, -1.1860,  0.0179]])
+</code></pre>
+<p>In the above example, our matrix 1 is 5x3 and matrix 2 is 3x5. So the resulting matrix due to matrix multiplication will be 5x5.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># Example 3 - breaking (to illustrate when it breaks)</span>
+a <span style="color:#f92672">=</span> torch<span style="color:#f92672">.</span>randn(<span style="color:#ae81ff">5</span>,<span style="color:#ae81ff">3</span>)
+b <span style="color:#f92672">=</span> torch<span style="color:#f92672">.</span>randn(<span style="color:#ae81ff">5</span>,<span style="color:#ae81ff">3</span>)
+torch<span style="color:#f92672">.</span>mm(a,b)
+</code></pre></div><pre><code>---------------------------------------------------------------------------
+
+RuntimeError                              Traceback (most recent call last)
+
+&lt;ipython-input-13-0474d6ccc1b5&gt; in &lt;module&gt;
+      2 a = torch.randn(5,3)
+      3 b = torch.randn(5,3)
+----&gt; 4 torch.mm(a,b)
+
+
+RuntimeError: size mismatch, m1: [5 x 3], m2: [5 x 3] at C:\w\1\s\tmp_conda_3.7_100118\conda\conda-bld\pytorch_1579082551706\work\aten\src\TH/generic/THTensorMath.cpp:136
+</code></pre>
+<p>For matrix multiplication, the columns of first matrix and the rows of second matrix should be same (n x m and m x p). But in this example this is not the case, hence runtime error.</p>
+<p><strong>torch.mm()</strong> should be used when we need to multiply two matrices which can be broadcasted i.e. having the same dimensions.</p>
+<h2 id="function-5---torchpowinput-exponent-outnone">Function 5 - torch.pow(input, exponent, out=None)</h2>
+<p>This function takes the power of each element in input with exponent and returns a tensor with the result.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># Example 1 - working</span>
+a <span style="color:#f92672">=</span> torch<span style="color:#f92672">.</span>tensor([<span style="color:#ae81ff">2</span>,<span style="color:#ae81ff">4</span>,<span style="color:#ae81ff">6</span>,<span style="color:#ae81ff">8</span>])
+torch<span style="color:#f92672">.</span>pow(a,<span style="color:#ae81ff">2</span>)
+</code></pre></div><pre><code>tensor([ 4, 16, 36, 64])
+</code></pre>
+<p>In the above example we apply a power of 2, which is a single scalar value, to each element of the tensor.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># Example 2 - working</span>
+b <span style="color:#f92672">=</span> torch<span style="color:#f92672">.</span>randn(<span style="color:#ae81ff">5</span>)
+<span style="color:#66d9ef">print</span>(b)
+torch<span style="color:#f92672">.</span>pow(b,torch<span style="color:#f92672">.</span>tensor([<span style="color:#ae81ff">2</span>,<span style="color:#ae81ff">3</span>,<span style="color:#ae81ff">4</span>,<span style="color:#ae81ff">5</span>,<span style="color:#ae81ff">6</span>]))
+</code></pre></div><pre><code>tensor([ 1.0490,  1.8707,  0.4406, -0.9861, -1.8026])
+
+tensor([ 1.1004,  6.5470,  0.0377, -0.9325, 34.3131])
+</code></pre>
+<p>In the above example, we created 5 random numbers using the torch.randn() function and applied an exponential value to each of these values using a tensor of [2,3,4,5,6]. The number of elements in the exponent should be equal to the number of elements in the input tensor.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># Example 3 - breaking (to illustrate when it breaks)</span>
+b <span style="color:#f92672">=</span> torch<span style="color:#f92672">.</span>randn(<span style="color:#ae81ff">5</span>)
+<span style="color:#66d9ef">print</span>(b)
+torch<span style="color:#f92672">.</span>pow(b,torch<span style="color:#f92672">.</span>tensor([<span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">2</span>,<span style="color:#ae81ff">3</span>,<span style="color:#ae81ff">4</span>,<span style="color:#ae81ff">5</span>,<span style="color:#ae81ff">6</span>]))
+</code></pre></div><pre><code>tensor([ 1.6209, -0.1225,  1.2093, -1.5934,  0.3392])
+
+---------------------------------------------------------------------------
+
+RuntimeError                              Traceback (most recent call last)
+
+&lt;ipython-input-16-6c01d5166f67&gt; in &lt;module&gt;
+      2 b = torch.randn(5)
+      3 print(b)
+----&gt; 4 torch.pow(b,torch.tensor([1,2,3,4,5,6]))
+
+
+RuntimeError: The size of tensor a (5) must match the size of tensor b (6) at non-singleton dimension 0
+</code></pre>
+<p>Here as we see that the number of elements in the exponent tensor is greater that the input tensor and hence the runtime error. The shapes of input and exponent must be same i.e. broadcastable.</p>
+<p><strong>torch.pow()</strong> can be used when we need to calculate the power of each element in the input tensor either by using a single exponent value or multiple values. But keep in mind that when using multiple exponent values, the shape of the expoenent tensor should be same as that of input tensor.</p>
+<h2 id="conclusion">Conclusion</h2>
+<p>In this notebook we learnt some of the basic yet interesting pytorch functions for faster prototyping and development of a Deep Learning Project. These functions are just the icing on the cake. There are numerous such functions which you can find in the official documentation of pytorch - <a href="https://pytorch.org/docs/stable/tensors.html">https://pytorch.org/docs/stable/tensors.html</a></p>
+<h2 id="reference-links">Reference Links</h2>
+<p>Provide links to your references and other interesting articles about tensors</p>
+<ul>
+<li>Official documentation for <code>torch.Tensor</code>: <a href="https://pytorch.org/docs/stable/tensors.html">https://pytorch.org/docs/stable/tensors.html</a></li>
+</ul>
+
+		</div>
+	</article>
+</main>
+
+<div class="authorbox clearfix">
+	<figure class="authorbox__avatar">
+		<img alt="Vighnesh Uday Tamse avatar" src="/img/Job_Photo.jpg" class="avatar" height="90" width="90">
+	</figure>
+	<div class="authorbox__header">
+		<span class="authorbox__name">About Vighnesh Uday Tamse</span>
+	</div>
+	<div class="authorbox__description">
+		I am a Data Science enthusiast with interests in Machine Learning, Deep Learning, Data Analysis and Data Visualization. I try to write posts about what I understand when I read something new and interesting in the field of Data Science.
+	</div>
+</div>
+
+<nav class="pager flex">
+	<div class="pager__item pager__item--prev">
+		<a class="pager__link" href="/post/understanding-resnet/" rel="prev">
+			<span class="pager__subtitle">«&thinsp;Previous</span>
+			<p class="pager__title">Understanding ResNet</p>
+		</a>
+	</div>
+</nav>
+
+
+
+			</div>
+			
+		</div>
+		<footer class="footer">
+	<div class="container footer__container flex">
+		
+		<div class="footer__copyright">
+			&copy; 2020 Vighnesh Uday Tamse.
+			<span class="footer__copyright-credits">Generated with <a href="https://gohugo.io/" rel="nofollow noopener" target="_blank">Hugo</a> and <a href="https://github.com/Vimux/Mainroad/" rel="nofollow noopener" target="_blank">Mainroad</a> theme.</span>
+		</div>
+	</div>
+</footer>
+	</div>
+<script async defer src="/js/menu.js"></script>
+<script src="/js/custom.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.6/MathJax.js?config=TeX-AMS-MML_HTMLorMML" async></script>
+</body>
+</html>

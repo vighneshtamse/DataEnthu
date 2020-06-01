@@ -1,0 +1,96 @@
+baseurl = "https://vighneshtamse.github.io/"
+title = "Vighnesh Tamse | DataEnthu"
+languageCode = "en-us"
+# paginate = "10" # Number of posts per page
+theme = "mainroad"
+disqusShortname = "" # Enable Disqus comments by entering your Disqus shortname
+googleAnalytics = "" # Enable Google Analytics by entering your tracking id
+
+[menu]
+
+  [[menu.main]]
+    identifier = "post"
+    name = "Blog"
+    title = "Posts"
+    url = "/post/"
+    weight = -110
+	
+  [[menu.main]]
+    identifier = "projects"
+    name = "Projects"
+    title = "Projects"
+    url = "/projects/"
+    weight = -100
+	
+  [[menu.main]]
+    identifier = "courses"
+    name = "Courses"
+    title = "Couses"
+    url = "/courses/"
+    weight = -90
+
+
+[Author] # Used in authorbox
+  name = "Vighnesh Uday Tamse"
+  bio = "I am a Data Science enthusiast with interests in Machine Learning, Deep Learning, Data Analysis and Data Visualization. I try to write posts about what I understand when I read something new and interesting in the field of Data Science."
+  avatar = "img/Job_Photo.jpg"
+
+[Params]
+  subtitle = "" # Deprecated in favor of .Site.Params.logo.subtitle
+  description = "Vighnesh's personal blog about Data Science" # Site description. Used in meta description
+  copyright = "Vighnesh Uday Tamse" # Footer copyright holder, otherwise will use site title
+  opengraph = true # Enable OpenGraph if true
+  schema = true # Enable Schema
+  twitter_cards = true # Enable Twitter Cards if true
+  readmore = true # Show "Read more" button in list if true
+  authorbox = true # Show authorbox at bottom of pages if true
+  toc = true # Enable Table of Contents
+  pager = true # Show pager navigation (prev/next links) at the bottom of pages if true
+  post_meta = ["author", "date", "categories", "translations"] # Order of post meta information
+  mainSections = ["post", "projects", "news"] # Specify section pages to show on home page and the "Recent articles" widget
+  dateformat = "2006-01-02" # Change the format of dates
+  mathjax = true # Enable MathJax
+  mathjaxPath = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.6/MathJax.js" # Specify MathJax path
+  mathjaxConfig = "TeX-AMS-MML_HTMLorMML" # Specify MathJax config
+  highlightColor = "#e22d30" # Override highlight color
+  customCSS = ["css/custom.css"] # Include custom CSS files
+  customJS = ["js/custom.js"] # Include custom JS files
+
+[Params.logo]
+  image = "img/favicon.ico" # Logo image. Path relative to "static"
+  title = "Vighnesh Tamse | DataEnthu" # Logo title, otherwise will use site title
+  subtitle = "Machine Learning, Deep Learning and Data Science enthusiast" # Logo subtitle
+
+[Params.sidebar]
+  home = "right" # Configure layout for home page
+  list = "left"  # Configure layout for list pages
+  single = false # Configure layout for single pages
+  # Enable widgets in given order
+  widgets = ["search", "recent", "categories", "taglist", "social", "languages"]
+
+[Params.widgets]
+  recent_num = 5 # Set the number of articles in the "Recent articles" widget
+  tags_counter = false # Enable counter for each tag in "Tags" widget
+
+[Params.widgets.social]
+  # Enable parts of social widget
+  # facebook = ""
+  twitter = "vighneshutamse"
+  # instagram = ""
+  linkedin = "vighnesh-tamse-97812973/"
+  # telegram = ""
+  github = "vighneshutamse"
+  # gitlab = ""
+  # bitbucket = ""
+  # email = ""
+
+# Custom social links
+# [[Params.widgets.social.custom]]
+  # title = "Youtube"
+  # url = "https://youtube.com/user/username"
+  # icon = "" # Optional. Path relative to "layouts/partials"
+
+# [[Params.widgets.social.custom]]
+  # title = "My Home Page"
+  # url = "http://example.com"
+  
