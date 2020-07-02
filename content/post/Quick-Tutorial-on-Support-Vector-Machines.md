@@ -1,7 +1,7 @@
 ---
 title: "Quick Tutorial on Support Vector Machines"
 date: 2020-07-02T19:53:35+05:30
-draft: false
+draft: true
 author: "Vighnesh Tamse"
 ---
 
