@@ -35,11 +35,6 @@ X,y = make_blobs(n_samples=50, centers=2, random_state=0, cluster_std=0.60)
 plt.scatter(X[:, 0], X[:, 1], c=y, cmap='summer');
 ```
 
-    C:\Program Files (x86)\Anaconda\lib\site-packages\sklearn\utils\deprecation.py:144: FutureWarning: The sklearn.datasets.samples_generator module is  deprecated in version 0.22 and will be removed in version 0.24. The corresponding classes / functions should instead be imported from sklearn.datasets. Anything that cannot be imported from sklearn.datasets is now part of the private API.
-      warnings.warn(message, FutureWarning)
-
-
-
 ![Output](/img/output_6_1.png)
 
 
@@ -58,15 +53,8 @@ for m, b in [(1, 0.65), (0.5, 1.6), (-0.2, 2.9)]: # m = slope, b = bias, the tup
     yfit = m*xfit+b
     plt.plot(xfit, yfit, '-k') # '-k' is used to color the lines 'black'
 
-plt.xlim(-1, 3.5)
+plt.xlim(-1, 3.5);
 ```
-
-
-
-
-    (-1, 3.5)
-
-
 
 
 ![Output](/img/output_9_1.png)
@@ -122,9 +110,9 @@ model.fit(X,y)
         kernel='linear', max_iter=-1, probability=False, random_state=None,
         shrinking=True, tol=0.001, verbose=False)
 
-
-
 This does not seem to be very intuitive. So let's plot the decision boundaries.
+
+
 
 ### Plotting the SVM Decision Boundaries:
 
@@ -180,8 +168,6 @@ The dotted lines here are known as **Margins**. The data points touching these m
 ```python
 model.support_vectors_
 ```
-
-
 
 
     array([[0.44359863, 3.11530945],
@@ -247,8 +233,6 @@ plt.scatter(X[:, 0], X[:, 1], c=y, s=50, cmap='summer')
 
 
     <matplotlib.collections.PathCollection at 0x24fc9c3d988>
-
-
 
 
 ![Output](/img/output_30_1.png)
