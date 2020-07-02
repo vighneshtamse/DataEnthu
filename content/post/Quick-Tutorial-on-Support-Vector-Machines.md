@@ -40,7 +40,7 @@ plt.scatter(X[:, 0], X[:, 1], c=y, cmap='summer');
 
 
 
-![png](/img/output_6_1.png)
+![](/img/output_6_1.png)
 
 
 Now, we know that we can differentiate these two classes by drawing a line (decision boundary) between them.  But we need to find the `optimum decision boundary` which will give us the `minimum in-sample error`.
@@ -69,7 +69,7 @@ plt.xlim(-1, 3.5)
 
 
 
-![png](/img/output_9_1.png)
+![](/img/output_9_1.png)
 
 
 Considering these 3 decision boundaries, the point 'x' can easily be misclassified by these decision boundaries. Theefore we want our classifier to be robust to these kind of perturbations in the input that can lead to drastic change in the output. We will see how SVM will overcome this situation by plotting margins.
@@ -94,7 +94,7 @@ plt.xlim(-1, 3.5);
 ```
 
 
-![png](/img/output_13_0.png)
+![](/img/output_13_0.png)
 
 
 What SVM does is it chooses the decision boundary which has the `maximum margin` and chooses it as the optimum model.
@@ -171,7 +171,7 @@ plt_decision_boundaries(model);
 ```
 
 
-![png](/img/output_19_0.png)
+![](/img/output_19_0.png)
 
 
 The dotted lines here are known as **Margins**. The data points touching these margins are known as **Support Vectors**. In Scikit-Learn, the identity of these points are stored in the `support_vectors_` attribute of the Support Vector Classifier.
@@ -201,7 +201,7 @@ plt.scatter(X[:, 0], X[:, 1], c=y, s=50, cmap='summer');
 ```
 
 
-![png](/img/output_24_0.png)
+![](/img/output_24_0.png)
 
 
 In order to handle such cases, we need to tune the hyperparameter **C** of the SVC model. This process of tuning the hyperparameters of a model for a better fit is usually known as **Hyperparameter Tuning**.</br> 
@@ -226,7 +226,7 @@ for axi, C in zip(ax, [10.0, 0.1]):
 ```
 
 
-![png](/img/output_26_0.png)
+![](/img/output_26_0.png)
 
 
 As you can see in the first figure where `C=10`, very less or none of the data points were allowed to enter into the margin space which is not the case in the second figure where the value of `C=0.1`.
@@ -251,7 +251,7 @@ plt.scatter(X[:, 0], X[:, 1], c=y, s=50, cmap='summer')
 
 
 
-![png](/img/output_30_1.png)
+![](/img/output_30_1.png)
 
 
 Let's see what happens if we try to fit the SVC model with kernel as linear:
@@ -268,7 +268,7 @@ plt_decision_boundaries(model, plot_support=False);
 ```
 
 
-![png](/img/output_32_0.png)
+![](/img/output_32_0.png)
 
 
 This doesn't seem to be good, right? Our linear SVC model is not able to differentiate at all between the classes.</br>
@@ -297,7 +297,7 @@ interact(plot_3D, elev=[-150, 150], azip=(-150, 150), X=fixed(X), y=fixed(y));
 ```
 
 
-![png](/img/output_35_0.png)
+![](/img/output_35_0.png)
 
 
 When we project the data to higher dimensions we see that the data becomes linearly separable and we can separate the data using a hyperplane.</br>
@@ -328,7 +328,7 @@ plt.scatter(model.support_vectors_[:, 0], model.support_vectors_[:, 1], s=300, l
 ```
 
 
-![png](/img/output_38_0.png)
+![](/img/output_38_0.png)
 
 
 #### Isn't it powerful and intuitive!
