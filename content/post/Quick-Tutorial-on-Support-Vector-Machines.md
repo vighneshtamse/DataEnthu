@@ -1,14 +1,15 @@
 ---
 title: "Quick Tutorial on Support Vector Machines"
 date: 2020-07-02T19:53:35+05:30
-draft: true
+draft: false
 author: "Vighnesh Tamse"
 ---
 
-# <center> Support Vector Machines </center>
+# Support Vector Machines (SVMs)
 
-**SVMs** are a powerful class of supervised machines learning algorithms for both classification and regression problems. In the context of classification, they can be viewed as **maximum margin linear classifiers**. Why? Well, we'll see that in a bit. </br>
-<br>The SVM uses an objective which explicitly encourages **lower out-of-sample error** (good generalization performance).
+**SVMs** are a powerful class of supervised machines learning algorithms for both classification and regression problems. In the context of classification, they can be viewed as **maximum margin linear classifiers**. Why? Well, we'll see that in a bit
+
+The SVM uses an objective which explicitly encourages **lower out-of-sample error** (good generalization performance).
 
 For the first part we will assume that the two classes are linearly separable. For non-linear boundaries, we will see that we project the data points into higher dimension so that they can be separated linearly using a plane.
 
@@ -25,6 +26,8 @@ import seaborn as sns; sns.set()
 
 Let's create a dataset of two classes and let the classes be linearly separable for now.
 
+
+
 ## Linearly separable classes:
 
 
@@ -35,7 +38,7 @@ X,y = make_blobs(n_samples=50, centers=2, random_state=0, cluster_std=0.60)
 plt.scatter(X[:, 0], X[:, 1], c=y, cmap='summer');
 ```
 
-![Output](/img/output_6_1.png)
+![Output](/img/output-1.png)
 
 
 Now, we know that we can differentiate these two classes by drawing a line (decision boundary) between them.  But we need to find the `optimum decision boundary` which will give us the `minimum in-sample error`.
@@ -84,8 +87,9 @@ plt.xlim(-1, 3.5);
 
 ![Output](/img/output_13_0.png)
 
-
 What SVM does is it chooses the decision boundary which has the `maximum margin` and chooses it as the optimum model.
+
+
 
 ## SVM in practice:
 
@@ -103,16 +107,12 @@ model.fit(X,y)
 ```
 
 
-
-
     SVC(C=10000000000.0, break_ties=False, cache_size=200, class_weight=None,
         coef0=0.0, decision_function_shape='ovr', degree=3, gamma='scale',
         kernel='linear', max_iter=-1, probability=False, random_state=None,
         shrinking=True, tol=0.001, verbose=False)
 
 This does not seem to be very intuitive. So let's plot the decision boundaries.
-
-
 
 ### Plotting the SVM Decision Boundaries:
 
@@ -189,10 +189,10 @@ plt.scatter(X[:, 0], X[:, 1], c=y, s=50, cmap='summer');
 
 ![Output](/img/output_24_0.png)
 
+In order to handle such cases, we need to tune the hyperparameter **C** of the SVC model. This process of tuning the hyperparameters of a model for a better fit is usually known as **Hyperparameter Tuning**.
+Depending upon the value of C, we can have soft or hard margins which decides how much classification error is permittable.
 
-In order to handle such cases, we need to tune the hyperparameter **C** of the SVC model. This process of tuning the hyperparameters of a model for a better fit is usually known as **Hyperparameter Tuning**.</br> 
-Depending upon the value of C, we can have soft or hard margins which decides how much classification error is permittable.</br>
-<br>We will now see how changing the value of C affects the fit of our model.</br>
+We will now see how changing the value of C affects the fit of our model.
 
 
 ```python
@@ -214,8 +214,9 @@ for axi, C in zip(ax, [10.0, 0.1]):
 
 ![Output](/img/output_26_0.png)
 
-
 As you can see in the first figure where `C=10`, very less or none of the data points were allowed to enter into the margin space which is not the case in the second figure where the value of `C=0.1`.
+
+
 
 ## Non-Linearly separable classes:
 
@@ -228,8 +229,6 @@ X, y = make_circles(100, factor=0.3, noise=0.1)
 
 plt.scatter(X[:, 0], X[:, 1], c=y, s=50, cmap='summer')
 ```
-
-
 
 
     <matplotlib.collections.PathCollection at 0x24fc9c3d988>
@@ -254,9 +253,9 @@ plt_decision_boundaries(model, plot_support=False);
 
 ![Output](/img/output_32_0.png)
 
-
 This doesn't seem to be good, right? Our linear SVC model is not able to differentiate at all between the classes.</br>
-<br>Remember at the beginning we discussed in short that if the classes are not linearly we would project the data to higher dimension and then draw a hyperplane that would separate the classes?</br>
+
+Remember at the beginning we discussed in short that if the classes are not linearly we would project the data to higher dimension and then draw a hyperplane that would separate the classes?
 Lets visualize the data in 3D since we have only 2 classes.
 
 
@@ -283,10 +282,11 @@ interact(plot_3D, elev=[-150, 150], azip=(-150, 150), X=fixed(X), y=fixed(y));
 
 ![Output](/img/output_35_0.png)
 
+When we project the data to higher dimensions we see that the data becomes linearly separable and we can separate the data using a hyperplane.
 
-When we project the data to higher dimensions we see that the data becomes linearly separable and we can separate the data using a hyperplane.</br>
-<br>But there is one problem here. We had only two classes here so projecting to 3D was no problem but what if there were N classes? We have to project it to N+1 dimensions which is not feasible.</br>
-<br>Thanks to SVM, we can overcome this by using the **kernel** hyperparameter. Using what is called as the *kernel trick* we can separate the classes without projecting the data to higher dimensions. We just need to change the kernel from Linear to **RBF (Radial Basis Function)**.</br>
+But there is one problem here. We had only two classes here so projecting to 3D was no problem but what if there were N classes? We have to project it to N+1 dimensions which is not feasible.</br>
+
+Thanks to SVM, we can overcome this by using the **kernel** hyperparameter. Using what is called as the *kernel trick* we can separate the classes without projecting the data to higher dimensions. We just need to change the kernel from Linear to **RBF (Radial Basis Function)**.
 
 
 ```python
@@ -295,14 +295,12 @@ model.fit(X, y)
 ```
 
 
-
-
     SVC(C=10, break_ties=False, cache_size=200, class_weight=None, coef0=0.0,
         decision_function_shape='ovr', degree=3, gamma='scale', kernel='rbf',
         max_iter=-1, probability=False, random_state=None, shrinking=True,
         tol=0.001, verbose=False)
 
-
+Let's plot the decision boundaries.
 
 
 ```python
@@ -317,6 +315,8 @@ plt.scatter(model.support_vectors_[:, 0], model.support_vectors_[:, 1], s=300, l
 
 #### Isn't it powerful and intuitive!
 
-In this section we have tried to understand and implement how SVM works for both linear and non-linear data. Try implementing it with different set of data points.</br>
-Hope you understood and liked this post. If you have any suggestions or any feedback please do reach out to me. I'll be happy to hear from you.</br>
+In this section we have tried to understand and implement how SVM works for both linear and non-linear data. Try implementing it with different set of data points.
+
+Hope you understood and liked this post. If you have any suggestions or any feedback please do reach out to me. I'll be happy to hear from you.
+
 Will see you in the next post. Till then take care, stay stafe and stay helathy!
