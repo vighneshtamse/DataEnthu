@@ -63,7 +63,7 @@ plt.xlim(-1, 3.5);
 ![Output](/img/output_9_1.png)
 
 
-Considering these 3 decision boundaries, the point 'x' can easily be misclassified by these decision boundaries. Theefore we want our classifier to be robust to these kind of perturbations in the input that can lead to drastic change in the output. We will see how SVM will overcome this situation by plotting margins.
+Considering these 3 decision boundaries, the point 'x' can easily be misclassified by these decision boundaries. Therefore we want our classifier to be robust to these kind of perturbations in the input that can lead to drastic change in the output. We will see how SVM will overcome this situation by plotting margins.
 
 We know that we can draw millions of lines or decision boundaries for classifying the classes but we want the best decision boundary which have **good generalization performance** and **lowest out-of-sample error**. For achieving this what SVM does is *instead of having a zero width line, as we have in the above graph, it draws a margin on both the sides of the line of finite length upto the nearest point*.
 
@@ -319,4 +319,4 @@ In this section we have tried to understand and implement how SVM works for both
 
 Hope you understood and liked this post. If you have any suggestions or any feedback please do reach out to me. I'll be happy to hear from you.
 
-Will see you in the next post. Till then take care, stay stafe and stay helathy!
+Will see you in the next post. Till then take care, stay safe and stay healthy!
